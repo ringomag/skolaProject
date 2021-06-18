@@ -1,7 +1,30 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %} About author {% endblock %}
 
 {% block heading %}
-<h1 class="text-center">About author, teacher Dejanah</h1>
+<h1 class="text-center">About school and leading teacher</h1>
+{% endblock %}
+
+{% block content %}
+
+<div class='row'>
+
+    <div class="col">
+        <p class="about">If you are looking for school that will teach you english language, you are in the right place.
+            Rawenclaw academy is school with awesome teachers and programs that fits any student. 
+            The school is located near Belgrade, and classes can be held online or at school chambers.
+        </p>
+        <br><br><br><br>
+        <div class="about">Our leading teacher has graduated on faculty of philology of Uneversity of Belgrade Serbia.
+            With expirience in teaching of 3 years, she'll leading you through your learning.
+        She's reliable, communicative and patient</div>
+    </div>
+    
+    <div class="col">
+        <img class="biblioteka" src="{% static 'images/biblioteka.jpg' %}" alt="" height="400px" weight="200px">
+    </div>
+</div>
+    
 {% endblock %}

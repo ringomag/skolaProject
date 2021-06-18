@@ -4,3 +4,31 @@ body{
     background-size: cover;
     
 }
+h1{
+    color:#ddd6cc;
+}
+.about{
+    color: #ddd6cc;
+    font-size: 1.2em;
+    
+}
+.biblioteka{
+    opacity: 0.4;
+    border-radius: 30px;
+}
+#absolute {
+    position: absolute;
+    left: 0 ; right: 0; bottom: 0;
+    height:[footer-height];
+}
+#journey{
+    
+    height:100px;
+    weight:100px;
+    background:transparent; 
+    opacity: 0.7;
+    color: #ddd6cc;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
