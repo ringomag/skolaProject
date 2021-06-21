@@ -32,3 +32,12 @@ h1{
     font-size: 1.2em;
     font-weight: bold;
 }
+ul{
+    color: #ddd6cc;
+    font-size: 1.2em;
+    background-color: transparent;
+    opacity: 0.7;
+}
+h1{
+    margin: 20px;
+}
