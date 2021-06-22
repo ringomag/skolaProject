@@ -1,12 +1,16 @@
 from django.db import models
-from django.db.models.fields import CharField
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Blog(models.Model):
-    title = models.CharField(max_length=30)
-    firstName = models.CharField(max_length=30)
-    lastName = models.CharField(max_length=30)
+    title = models.CharField(max_length=100)
+    firstName = models.CharField(max_length=50)
+    lastName = models.CharField(max_length=50)
+    image = models.ImageField(blank=True, null=True)
     summary = models.CharField(max_length=200)
+    body = RichTextField(blank=True, null=True)
+    created = models.DateTimeField(auto_now_add=True, null=True)
+    edited = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.title
