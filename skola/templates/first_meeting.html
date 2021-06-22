@@ -10,9 +10,16 @@
    
 <div class="row">
     <div class="col">
-        {% if message_first_name %}
-        <h2>Hvala {{message_first_name}}</h2>
+        
+    {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <div class="alert alert-success">
+            {{ message }} {{message_first_name}}
+        </div>
         {% endif %}
+    {% endfor %}
+
+
         
         <form method="POST" class="form-control" style="opacity: 0.7">
             {% csrf_token %}

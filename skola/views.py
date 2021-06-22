@@ -43,7 +43,7 @@ class FirstMeetingView(View):
             ['optimuskrajm@gmail.com'], #to email
             fail_silently=False,
             )
-            
+            messages.success(request, 'Thank you for your time!')
             return redirect('first_meeting')
 
         return render(request, 'first_meeting.html', {'form':form, 'message_first_name':message_first_name})
