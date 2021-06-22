@@ -1,5 +1,8 @@
-from django.shortcuts import render
-from .forms import FirstMeeting
+from django.shortcuts import render, redirect
+from .forms import FirstMeetingForm
+from django.views import View
+from django.core.mail import send_mail
+from django.contrib import messages
 
 def index(request):
     return render(request, 'index.html', {})
@@ -13,6 +16,34 @@ def programs(request):
 def blog(request):
     return render(request, 'blog.html', {})
 
-def firstMeeting(request):
-    form = FirstMeeting
-    return render(request, 'first_meeting.html', {'form':form})
+class FirstMeetingView(View):
+    form = FirstMeetingForm
+
+    def get(self, request, *args, **kwargs):
+        form = FirstMeetingForm
+        return render(request, 'first_meeting.html', {'form':form,})
+
+    def post(self, request, *args, **kwargs):
+        form = FirstMeetingForm
+        form = FirstMeetingForm(request.POST)
+       
+        if form.is_valid():
+            print("neki tekst")
+
+            message_name = "ime i prezime: " + form.cleaned_data['first_name'] + " " + form.cleaned_data['last_name']
+            message_content = "Zakazivanje inicijalnog termina"
+            message_from = request.POST['email']
+            message_first_name = form.cleaned_data['first_name']
+            print(message_first_name)
+
+            send_mail(
+            message_name, #subject
+            message_content, #message
+            message_from, #from email
+            ['optimuskrajm@gmail.com'], #to email
+            fail_silently=False,
+            )
+            
+            return redirect('first_meeting')
+
+        return render(request, 'first_meeting.html', {'form':form, 'message_first_name':message_first_name})
