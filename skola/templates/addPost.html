@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Add Post {% endblock %}
+
+{% block heading %}
+<h1 class="text-center">Add Post</h1>
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <form method="POST" class="form-control" style="opacity: 0.7">
+            {{form.media}}
+            {{form.as_p|safe}}
+            <input type="submit">
+        </form>
+        
+    </div>
+</div>
+{% endblock %}

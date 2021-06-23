@@ -10,7 +10,7 @@ class Blog(models.Model):
     summary = models.CharField(max_length=200)
     body = RichTextField(blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True, null=True)
-    edited = models.DateTimeField(auto_now_add=True, null=True)
+    edited = models.DateTimeField(auto_now=True, null=True)
 
     def __str__(self):
         return self.title

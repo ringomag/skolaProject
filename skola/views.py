@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import FirstMeetingForm
+from .forms import FirstMeetingForm, BlogForm
 from django.views import View
 from django.core.mail import send_mail
 from django.contrib import messages
@@ -21,7 +21,7 @@ class FirstMeetingView(View):
 
     def get(self, request, *args, **kwargs):
         form = FirstMeetingForm
-        return render(request, 'first_meeting.html', {'form':form,})
+        return render(request, 'first_meeting.html', {'form':form})
 
     def post(self, request, *args, **kwargs):
         form = FirstMeetingForm
@@ -47,3 +47,8 @@ class FirstMeetingView(View):
             return redirect('first_meeting')
 
         return render(request, 'first_meeting.html', {'form':form, 'message_first_name':message_first_name})
+
+class BlogPostView(View):
+    def get(self, request, *args, **kwargs):
+        form = BlogForm
+        return render(request, 'addPost.html', {"form":form})
