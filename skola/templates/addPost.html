@@ -11,7 +11,8 @@
 
 <div class="row">
     <div class="col">
-        <form method="POST" class="form-control" style="opacity: 0.7">
+        <form method="POST" enctype="multipart/form-data" class="form-control" style="opacity: 0.7">
+            {% csrf_token %}
             {{form.media}}
             {{form.as_p|safe}}
             <input type="submit">
@@ -19,4 +20,10 @@
         
     </div>
 </div>
+{% for post in blogPosts %}
+    {{post.title}}
+    {{post.body}}
+    {{post.image}}
+{% endfor %}
+
 {% endblock %}

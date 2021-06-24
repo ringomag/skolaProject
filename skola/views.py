@@ -3,6 +3,7 @@ from .forms import FirstMeetingForm, BlogForm
 from django.views import View
 from django.core.mail import send_mail
 from django.contrib import messages
+from .models import Blog
 
 def index(request):
     return render(request, 'index.html', {})
@@ -14,7 +15,8 @@ def programs(request):
     return render(request, 'programs.html', {})
 
 def blog(request):
-    return render(request, 'blog.html', {})
+    blogPosts = Blog.objects.all()
+    return render(request, 'blog.html', {'blogPosts':blogPosts})
 
 class FirstMeetingView(View):
     form = FirstMeetingForm
@@ -51,4 +53,12 @@ class FirstMeetingView(View):
 class BlogPostView(View):
     def get(self, request, *args, **kwargs):
         form = BlogForm
+        return render(request, 'addPost.html', {"form":form})
+    
+    def post(self, request, *args, **kwargs):
+        form=BlogForm
+        form=self.form(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('addPost')
         return render(request, 'addPost.html', {"form":form})
