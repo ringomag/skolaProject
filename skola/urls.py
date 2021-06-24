@@ -9,5 +9,6 @@ urlpatterns = [
     path('first_meeting/', FirstMeetingView.as_view(), name="first_meeting"),
     path('blog/', views.blog, name="blog"),
     path('addPost/', BlogPostView.as_view(), name="addPost"),
+    path('BlogDetails/<str:pk>', views.BlogDetails, name="details"),
     
 ]

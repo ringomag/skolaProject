@@ -8,16 +8,16 @@
 
 {% block content %}
     <a href="{% url 'addPost' %}" class="btn btn-dark">Add POST</a>
-   <br>
+   <hr style="color:white">
 
-   <ul>
+   <ul class="list-group">
    {% for post in blogPosts %}
        
-   <li>{{post.title}} </li> 
+   <li class="list-group-item list-group-item-dark"><b><a href="{% url 'details' post.id %}">{{post.title}}</a></b> <br> 
+        <em>by - {{post.firstName}}</em> <br>
+        <em>summary</em> - {{post.summary}}</li> 
    
-   <li><img src="{{post.image.url}}" alt="" height="200px" width="300px"> </li>
-    
-    <li>{{post.body|safe}}</li>
+   
     
     
    {% endfor %}

@@ -51,14 +51,19 @@ class FirstMeetingView(View):
         return render(request, 'first_meeting.html', {'form':form, 'message_first_name':message_first_name})
 
 class BlogPostView(View):
+    form=BlogForm
     def get(self, request, *args, **kwargs):
         form = BlogForm
         return render(request, 'addPost.html', {"form":form})
     
     def post(self, request, *args, **kwargs):
         form=BlogForm
-        form=self.form(request.POST)
+        form=self.form(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('addPost')
         return render(request, 'addPost.html', {"form":form})
+
+def BlogDetails(request, pk):
+    details = Blog.objects.get(id=pk)
+    return render(request, "BlogDetails.html", {"details":details})

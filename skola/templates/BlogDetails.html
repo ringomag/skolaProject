@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block heading %}
+<h1 class="text-center">Add Post</h1>
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'blog' %}" class="btn btn-dark">Back</a> <hr style="color:white">
+<ul class=list-group style="opacity: 0.9">
+    <li class=list-group-item><b>{{details.title}}</b> | by - <em>{{details.firstName}} </em> | Created: <small><em>{{details.created}}</em></small></li>
+    <li class=list-group-item><img src="{{details.image.url}}" alt="" height="200" width="300" ></li>
+    <li class="list-group-item">{{details.body|safe}}</li>
+</ul> 
+{% endblock %}
