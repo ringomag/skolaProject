@@ -8,18 +8,43 @@
 
 {% block content %}
     <a href="{% url 'addPost' %}" class="btn btn-dark">Add POST</a>
-   <br>
+   <hr style="color:white">
 
-   <ul>
-   {% for post in blogPosts %}
+   <ul class="list-group">
+   {% for post in posts %}
        
-   <li>{{post.title}} </li> 
-   
-   <li><img src="{{post.image.url}}" alt="" height="200px" width="300px"> </li>
-    
-    <li>{{post.body|safe}}</li>
-    
-    
+   <li class="list-group-item list-group-item-dark"><b><a href="{% url 'details' post.id %}">{{post.title}}</a></b> <br> 
+        <em>by - {{post.firstName}}</em> <br>
+        <em>summary</em> - {{post.summary}}</li> 
    {% endfor %}
     </ul>
+    <br>
+    
+
+    <!-- {{posts.has_previous}} returns True or False
+    {{posts.has_next}} returns True or False
+    {{posts.number}} for current page
+    {{posts.paginator.num_pages}} for total page number -->
+    
+    <nav aria-label="Page navigation example">
+        
+        <ul class="pagination justify-content-center">
+            {% if posts.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page=1">&laquo First</a></li>
+            <li class="page-item"></li><a class="page-link" href="?page={{posts.previous_page_number}}">Previous</a>
+            {% endif %}
+
+            <li class="page-item disabled"><a class="page-link" href="">Page{{posts.number}} of {{posts.paginator.num_pages}}</a></li>
+
+            {% if posts.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{posts.next_page_number}}">Next</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{posts.paginator.num_pages}}">Last &raquo</a></li>
+            {% endif %}
+        </ul>
+
+      </nav>
+    
+
+        
+    
 {% endblock %}
