@@ -4,6 +4,8 @@ from django.views import View
 from django.core.mail import send_mail
 from django.contrib import messages
 from .models import Blog
+#import pagination
+from django.core.paginator import Paginator
 
 def index(request):
     return render(request, 'index.html', {})
@@ -16,7 +18,14 @@ def programs(request):
 
 def blog(request):
     blogPosts = Blog.objects.all()
-    return render(request, 'blog.html', {'blogPosts':blogPosts})
+
+    #paginator
+    p = Paginator(Blog.objects.all(), 2)
+    page = request.GET.get('page')
+    posts = p.get_page(page)
+
+
+    return render(request, 'blog.html', {'blogPosts':blogPosts, 'posts':posts})
 
 class FirstMeetingView(View):
     form = FirstMeetingForm

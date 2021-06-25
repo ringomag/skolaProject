@@ -41,3 +41,7 @@ ul{
 h1{
     margin: 20px;
 }
+.paginator{
+    color:white;
+    text-align: center;
+}
