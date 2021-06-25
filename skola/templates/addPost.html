@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Add Post {% endblock %}
+
+{% block heading %}
+<h1 class="text-center">Add Post</h1>
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <form method="POST" enctype="multipart/form-data" class="form-control" style="opacity: 0.7">
+            {% csrf_token %}
+            {{form.media}}
+            {{form.as_p|safe}}
+            <input type="submit">
+        </form>
+        
+    </div>
+</div>
+{% for post in blogPosts %}
+    {{post.title}}
+    {{post.body}}
+    {{post.image}}
+{% endfor %}
+
+{% endblock %}

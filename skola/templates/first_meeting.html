@@ -5,3 +5,36 @@
 {% block heading %}
 <h1 class="text-center">Ask for first meeting</h1>
 {% endblock %}
+
+{% block content %}
+   
+<div class="row">
+    <div class="col">
+        
+    {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <div class="alert alert-success">
+            {{ message }} {{message_first_name}}
+        </div>
+        {% endif %}
+    {% endfor %}
+
+
+        
+        <form method="POST" class="form-control" style="opacity: 0.7">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <label for="first_name.id_for_label" class="form-label">First Name</label>
+            {{form.first_name}}
+            <label for="last_name.id_for_label" class="form-label">Last Name</label>
+            {{form.last_name}}
+            <label for="email.id_for_label" class="form-label">Email</label>
+            {{form.email}}
+            <br>
+            <input type="submit" value="Ask for Meeting">
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

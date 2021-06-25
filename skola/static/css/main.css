@@ -33,6 +33,7 @@ h1{
     font-size: 1.2em;
     font-weight: bold;
 }
+
 .index-col{
     background-color: #947a57 ;
     opacity: 0.6;
@@ -41,4 +42,14 @@ h1{
 
 .index-icons{
     margin-top: 50px;
+}
+ul{
+    color: #ddd6cc;
+    font-size: 1.2em;
+    background-color: transparent;
+    opacity: 0.7;
+}
+h1{
+    margin: 20px;
+>>>>>>> blog
 }

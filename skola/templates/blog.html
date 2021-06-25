@@ -3,5 +3,23 @@
 {% block title %} Blog {% endblock %}
 
 {% block heading %}
-<h1 class="text-center">Dejanah's blog</h1>
+<h1 class="text-center">Teacher's blog</h1>
+{% endblock %}
+
+{% block content %}
+    <a href="{% url 'addPost' %}" class="btn btn-dark">Add POST</a>
+   <br>
+
+   <ul>
+   {% for post in blogPosts %}
+       
+   <li>{{post.title}} </li> 
+   
+   <li><img src="{{post.image.url}}" alt="" height="200px" width="300px"> </li>
+    
+    <li>{{post.body|safe}}</li>
+    
+    
+   {% endfor %}
+    </ul>
 {% endblock %}
