@@ -23,12 +23,22 @@ h1{
 }
 #journey{
     
-    height:100px;
-    weight:100px;
+    height:150px;
+    weight:150px;
     background:transparent; 
     opacity: 0.7;
     color: #ddd6cc;
     border-radius: 50px;
+    border-width: 10px;
     font-size: 1.2em;
     font-weight: bold;
+}
+.index-col{
+    background-color: #947a57 ;
+    opacity: 0.6;
+    margin-right: 5px;
+}
+
+.index-icons{
+    margin-top: 50px;
 }
