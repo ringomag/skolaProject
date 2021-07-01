@@ -7,11 +7,19 @@ body{
 h1{
     color:#ddd6cc;
     margin: 20px;
+    
 }
 .about{
-    color: #ddd6cc;
+    color: #252421;
     font-size: 1.2em;
+    background-color: #ddd6cc;
+    opacity: 0.7;
+    border-radius: 10px;
+    padding: 5px;
     
+}
+.footer-links{
+    color:#ddd6cc;
 }
 .biblioteka{
     opacity: 0.4;
@@ -42,7 +50,7 @@ h1{
 }
 
 .index-icons{
-    margin-top: 50px;
+    margin-top: 120px;
 }
 
 .index-col{
@@ -58,7 +66,7 @@ ul{
     color: #ddd6cc;
     font-size: 1.2em;
     background-color: transparent;
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
 .footer-icon{
